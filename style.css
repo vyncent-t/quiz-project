@@ -1,0 +1,50 @@
+* {
+    
+}
+
+body {    
+    background-color: #0084db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.banner {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+.mainbuttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.quizcard {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.titlequestion {
+    align-self: center;
+    max-width: 80%;
+}
+
+.answerbutton {
+    max-width: 80%;
+    min-width: 50%;
+    max-height: 15%;
+    margin: 1em 0;
+    
+}
