@@ -4,30 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Quiz</title>
 </head>
 <body>
     <main>
-        <section class="banner">
+        <div>
+            <p>Timer placeholder</p>
+        </div>
+        
+        <section class="navbuttons">
             <div class="mainbuttons">
                 <button>View highscores</button>
                 <button>View highscores</button>
             </div>
         </section>
 
-        <section>
+
+        <section id="welcome">
             <div class="quizcard">
-                <div class="titlequestion">
+                <div class="cardfont">
+                    <p>welcome to the quiz, try to answer the following code-related questions within the time limit. Keep in mind that an incorrect answer will penalize your score and time limit by ten seconds! </p>
+                </div>
+                <button id="beginbutton">Start quiz</button>
+            </div>
+        </section>
+
+        <section id="quizContent" class="hide" >
+            <div class="quizcard">
+                <div class="cardfont">
                     <p>Question that will be printed on the card whenever the user presses that will be printed on the card whenever the user presses next?</p>
                 </div>
                 <button class="answerbutton">Answer that may be long in length?</button>
                 <button class="answerbutton">Answer</button>
                 <button class="answerbutton">Answer</button>
                 <button class="answerbutton">Answer</button>
-
-
-
             </div>
         </section>
 

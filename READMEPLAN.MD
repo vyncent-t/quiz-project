@@ -21,6 +21,7 @@ mainQuestionBank[0] = {
          questionAnswer: "<script>",    }
 
 randomize function runs and makes new array
+// NEED TO USE SORT FOR THIS
 userQuestions = [ {askB}, {askA}, {askC} ]
 when user presses next button, object fills out the quiz card using innerText
 
