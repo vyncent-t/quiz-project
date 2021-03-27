@@ -1,7 +1,10 @@
 let startButton = document.getElementById('beginbutton')
 let welcomePart = document.querySelector('#welcome')
 let quizElite = document.querySelector('#quizContent')
-let questionASk = document.querySelector('#questionprompt')
+let questionAsk = document.querySelector('#questionprompt')
+let quizBody = document.querySelector('.quizcard')
+let buttonWork = document.querySelector('#answercontainer')
+let nextButton = document.querySelector('#nextcard')
 startButton.addEventListener('click', startQuiz)
 
 
@@ -17,11 +20,24 @@ function startQuiz()  {
 }
 
 function readyQuestion() {
+    resetQuestion()
     createQuestion(randomQuestions[currentQuestion])
 }
 
 function createQuestion(questionInput) {
-    questionASk.innerText = questionInput.question
+    questionAsk.innerText = questionInput.question
+
+    questionInput.answers.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('answerbutton')
+        button.addEventListener('click',chooseAnswer)
+        buttonWork.appendChild(button)
+    });
+}
+
+function resetQuestion() {
+    nextButton.classList.add('hidden')
 }
 
 function chooseAnswer() {

@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 body {    
@@ -19,6 +19,10 @@ main {
 
 .hide {
     display: none;
+}
+
+button {
+    font-size: 1rem;
 }
 .navbuttons {
     width: 800px;
@@ -51,15 +55,43 @@ main {
 
 .cardfont {
     align-self: center;
-    max-width: 80%;
+    text-align: center;
+    min-width: 80%;
+    font-size: 20px;
     font-family: 'Roboto', sans-serif;
 }
+
+
 
 .answerbutton {
     max-width: 80%;
     min-width: 50%;
-    max-height: 15%;
     margin: 1em 0;
-    
+    color:white;
+    background-color: #054875;
+    padding: 0.2em 1em;
+    border-radius: 1em;
 }
 
+.answerbutton:hover,.nxButton:hover {
+    background-color: rgb(4, 139, 56);
+}
+
+#answercontainer{
+    min-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    /* background-color: black; */
+}
+
+.nxButton {
+    min-width: 20%;
+    margin: 1em 0;
+    color:white;
+    background-color: #0895f3;
+    padding: 0.2em 1em;
+    border-radius: 1em;
+    align-self: flex-end;
+}
