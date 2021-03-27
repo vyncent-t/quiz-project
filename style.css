@@ -73,7 +73,7 @@ button {
     border-radius: 1em;
 }
 
-.answerbutton:hover,.nxButton:hover {
+.answerbutton:hover,.nxButton:hover,.mainbutton:hover {
     background-color: rgb(4, 139, 56);
 }
 
@@ -94,4 +94,14 @@ button {
     padding: 0.2em 1em;
     border-radius: 1em;
     align-self: flex-end;
+}
+
+.mainbutton {
+    min-width: 20%;
+    margin: 1em 0;
+    color:white;
+    background-color: #0895f3;
+    padding: 0.2em 1em;
+    border-radius: 1em;
+    align-self: center;
 }
