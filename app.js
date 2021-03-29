@@ -8,6 +8,7 @@ let nextButton = document.querySelector('#nextcard')
 let answerField = document.querySelector('#answercontainer')
 let wallCard = document.querySelector('#leaderwall')
 startButton.addEventListener('click', startQuiz)
+startButton.addEventListener('click', quizTimer)
 let retry = document.querySelector('#redoquiz')
 let clickLeader = document.querySelector('#leaderboardbutton')
 
@@ -16,6 +17,35 @@ let currentQuestion
 let nextCount = 0
 let playerPoints = 0
 let userLocation = 0
+
+
+let timeRemaining = document.querySelector('#timer')
+timeRemaining.classList.add('hide')
+let timerMaxMinutes = 6;
+let totalTimer = timerMaxMinutes * 60;
+
+
+if(totalTimer <= 1) {
+
+}
+function quizTimer() {
+    setInterval(function() {
+        let quizMinutes = Math.floor(totalTimer / 60);
+        let quizSeconds = totalTimer % 60;
+    if(totalTimer <= 0) {
+    clearInterval(totalTimer = 0)}
+    if(totalTimer >= 1){
+        timeRemaining.innerText = `${quizMinutes} minutes and ${quizSeconds} remaining`;
+        totalTimer--;} else {
+            timeRemaining.innerText = `Out of time!`
+            nextButton.classList.add('hide')
+            questionAsk.innerText = `Quiz complete! USER earned ${playerPoints} / 10`
+            // FUNCTION FOR LEADERBOARD RUN
+            leaderboard()
+        }
+    }
+, 1000)
+}
 
 // need username input
 // need point display
@@ -29,8 +59,8 @@ if (currentQuestion >= 9) {
     nextButton.classList.add('hide')
 }
 
-
 function startQuiz()  {
+    timeRemaining.classList.remove('hide')
     console.log('pogu')
     welcomePart.classList.add('hide')
     randomQuestions = mainQuestionBank.sort(() => {
@@ -104,7 +134,9 @@ function chooseAnswer(e) {
     nextButton.addEventListener('click', middleFunction)
     if (correctChoice) {
         playerPoints++
-    } else if (!correctChoice) { console.log(` wrong answer. player points ${playerPoints}`) }
+    } else if (!correctChoice) { 
+        totalTimer = totalTimer - 60
+        console.log(` wrong answer. player points ${playerPoints}`) }
     console.log(`player points ${playerPoints}`)
     resetQuestion()
 

@@ -5,7 +5,7 @@
 }
 
 body {    
-    background-color: #05479c;
+    background-color: #2f75cf;
     width: 100vw;
     height: 100vh;
 }
@@ -31,17 +31,27 @@ button {
     padding: 0.2em 1em;
     border-radius: 1em;
 }
-.navbuttons {
+.navbox {
     width: 800px;
     max-width: 80%;
     background-color: white;
     border-radius: 10px;
+    padding: 20px;
     margin: 1em auto;
+    box-shadow: 0px 0px 25px 1px;
 }
 
 #leaderboardbutton {
     min-width: 20%;
+    height: 10%;
+    align-self: center;
 }
+
+#timer {
+    font-size: 1em;
+    font-weight: 800;
+}
+
 .mainbuttons {
     display: flex;
     justify-content: space-around;
