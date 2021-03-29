@@ -5,7 +5,17 @@ let questionAsk = document.querySelector('#questionprompt')
 let quizBody = document.querySelector('.quizcard')
 let buttonWork = document.querySelector('#answercontainer')
 let nextButton = document.querySelector('#nextcard')
+let answerField = document.querySelector('#answercontainer')
 startButton.addEventListener('click', startQuiz)
+let randomQuestions
+let currentQuestion
+let nextCount = 0
+
+
+
+if (currentQuestion >= 9) {
+    nextButton.classList.add('hide')
+}
 
 
 function startQuiz()  {
@@ -16,11 +26,12 @@ function startQuiz()  {
     })
     currentQuestion = 0
     quizElite.classList.remove('hide')
+    nextButton.classList.add('hide')
     readyQuestion()
 }
 
 function readyQuestion() {
-    resetQuestion()
+    console.log(`question of array ${currentQuestion}`)
     createQuestion(randomQuestions[currentQuestion])
 }
 
@@ -30,23 +41,44 @@ function createQuestion(questionInput) {
     questionInput.answers.forEach(answer => {
         const button = document.createElement('button')
         button.innerText = answer.text
-        button.classList.add('answerbutton')
         button.addEventListener('click',chooseAnswer)
         buttonWork.appendChild(button)
     });
+
+
+}
+
+function middleFunction() {
+    nextCount++
+    if (nextCount >= 10) {
+        nextButton.classList.add('hide')
+        questionAsk.innerText = 'Quiz done'
+        // FUNCTION FOR LEADERBOARD RUN
+    }
+    nextButton.classList.add('hide')
+    console.log(`answered ${nextCount}`)
+    if (currentQuestion <= 9) {
+        resetQuestion()
+        readyQuestion()}
 }
 
 function resetQuestion() {
-    nextButton.classList.add('hidden')
+currentQuestion++;
+        while (buttonWork.firstChild) {
+            buttonWork.removeChild
+            (buttonWork.firstChild)
+        }
 }
 
 function chooseAnswer() {
-
+    nextButton.classList.remove('hide')
+    nextButton.addEventListener('click', middleFunction)
 }
 
 
-let randomQuestions
-let currentQuestion
+//     // leaderboard launch func
+
+// }
 
 const mainQuestionBank = [
     {question:"Inside which HTML element do we put the JavaScript?",

@@ -5,7 +5,7 @@
 }
 
 body {    
-    background-color: #0084db;
+    background-color: #05479c;
     width: 100vw;
     height: 100vh;
 }
@@ -22,7 +22,14 @@ main {
 }
 
 button {
+    color:white;
+    background-color: #0077b6;
     font-size: 1rem;
+    max-width: 80%;
+    min-width: 50%;
+    margin: 1em 0;
+    padding: 0.2em 1em;
+    border-radius: 1em;
 }
 .navbuttons {
     width: 800px;
@@ -35,7 +42,6 @@ button {
 .mainbuttons {
     display: flex;
     justify-content: space-around;
-
 }
 
 
@@ -63,17 +69,7 @@ button {
 
 
 
-.answerbutton {
-    max-width: 80%;
-    min-width: 50%;
-    margin: 1em 0;
-    color:white;
-    background-color: #054875;
-    padding: 0.2em 1em;
-    border-radius: 1em;
-}
-
-.answerbutton:hover,.nxButton:hover,.mainbutton:hover {
+button:hover {
     background-color: rgb(4, 139, 56);
 }
 
@@ -86,11 +82,9 @@ button {
     /* background-color: black; */
 }
 
-.nxButton {
+.nextButton {
     min-width: 20%;
     margin: 1em 0;
-    color:white;
-    background-color: #0895f3;
     padding: 0.2em 1em;
     border-radius: 1em;
     align-self: flex-end;
@@ -99,8 +93,6 @@ button {
 .mainbutton {
     min-width: 20%;
     margin: 1em 0;
-    color:white;
-    background-color: #0895f3;
     padding: 0.2em 1em;
     border-radius: 1em;
     align-self: center;
