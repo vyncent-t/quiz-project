@@ -39,6 +39,9 @@ button {
     margin: 1em auto;
 }
 
+#leaderboardbutton {
+    min-width: 20%;
+}
 .mainbuttons {
     display: flex;
     justify-content: space-around;
@@ -71,6 +74,11 @@ button {
 
 button:hover {
     background-color: rgb(4, 139, 56);
+}
+
+userWants {
+    background-color: rgb(4, 139, 56);
+    display: flex;
 }
 
 #answercontainer{
