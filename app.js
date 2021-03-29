@@ -105,8 +105,7 @@ function middleFunction() {
     nextButton.classList.add('hide')
     console.log(`answered ${nextCount}`)
     if (currentQuestion <= 9) {
-
-        readyQuestion()}
+    readyQuestion()}
 }
 
 function resetQuestion() {
