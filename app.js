@@ -29,7 +29,7 @@ let currentPlayer = {
 let playerList = document.querySelector('#previousPlays')
 
 function playerInfo() {
-    const games = document.createElement('li').value
+    const games = document.createElement('li')
     games.innerText = `${currentPlayer.name} | ${currentPlayer.points}`
     playerList.appendChild(games)
     localStorage.setItem('leaderBoard', JSON.stringify([currentPlayer]));
@@ -74,7 +74,7 @@ if (currentQuestion >= 9) {
 }
 
 function startQuiz()  {
-    currentPlayer.name = document.querySelector('#nameInput')
+    currentPlayer.name = document.querySelector('#nameInput').value
     timeRemaining.classList.remove('hide')
     console.log('pogu')
     welcomePart.classList.add('hide')
