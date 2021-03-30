@@ -18,33 +18,38 @@ let nextCount = 0
 let userLocation = 0
 
 
-
-let allPlayers = []
+//setting leaderboard object
+let allPlayers = localStorage.getItem("leaderBoard");
 let currentPlayer = {
     name: '',
     points: 0,
 }
 
-
+//leaderboard part
 let playerList = document.querySelector('#previousPlays')
+
 
 function playerInfo() {
     const games = document.createElement('li')
     games.innerText = `${currentPlayer.name} | ${currentPlayer.points}`
     playerList.appendChild(games)
-    localStorage.setItem('leaderBoard', JSON.stringify([currentPlayer]));
+    if(allPlayers === null){
+        localStorage.setItem('leaderBoard', JSON.stringify([currentPlayer]));
+    } else {
+        let parsed = JSON.parse(allPlayers);
+        parsed.push(currentPlayer);
+        localStorage.setItem('leaderBoard', JSON.stringify(parsed));
+        allPlayers = localStorage.getItem("leaderBoard");
+    }
+    
 }
 
-
+// time settings
 let timeRemaining = document.querySelector('#timer')
 timeRemaining.classList.add('hide')
 let timerMaxMinutes = 6;
 let totalTimer = timerMaxMinutes * 60;
 
-
-if(totalTimer <= 1) {
-
-}
 function quizTimer() {
     
 
@@ -58,14 +63,14 @@ function quizTimer() {
     timeRemaining.innerText = `Out of time!`
     nextButton.classList.add('hide')
     leaderboard()
-    questionAsk.innerText = `Quiz complete! ${gameName} earned ${currentPlayer.points} / 10`
+    questionAsk.innerText = `Quiz complete! ${currentPlayer.name} earned ${currentPlayer.points} / 10`
    }
 }
 , 1000)
 
 }
 
-
+// free placements
 wallCard.classList.add('hide')
 clickLeader.addEventListener('click', leaderboard)
 
@@ -73,7 +78,18 @@ if (currentQuestion >= 9) {
     nextButton.classList.add('hide')
 }
 
+// launches quiz
 function startQuiz()  {
+    if(allPlayers !== null){
+        playerList.innerHTML = "";
+        parsed = JSON.parse(allPlayers);
+        parsed.forEach(player => {
+            let item = document.createElement('li');
+            item.innerText = `${player.name} | ${player.points}`
+            playerList.appendChild(item)
+        })
+    }
+
     currentPlayer.name = document.querySelector('#nameInput').value
     timeRemaining.classList.remove('hide')
     console.log('pogu')
@@ -87,6 +103,7 @@ function startQuiz()  {
     readyQuestion()
 }
 
+// mkaes quiz questions
 function readyQuestion() {
     console.log(`question of array ${currentQuestion}`)
     createQuestion(randomQuestions[currentQuestion])
@@ -109,12 +126,12 @@ function createQuestion(questionInput) {
 
 }
 
+// bridge function
 function middleFunction() {
     nextCount++
     if (nextCount >= 10) {
         nextButton.classList.add('hide')
-        questionAsk.innerText = `Quiz complete! ${playerName} earned ${currentPlayer.points} / 10`
-        // FUNCTION FOR LEADERBOARD RUN
+        questionAsk.innerText = `Quiz complete! ${currentPlayer.name} earned ${currentPlayer.points} / 10`
         leaderboard ()
     }
     nextButton.classList.add('hide')
